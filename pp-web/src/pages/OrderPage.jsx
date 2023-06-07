@@ -30,7 +30,7 @@ export default function OrderPage() {
 
       <div className="p-10">
         <div class="grid grid-cols-3 gap-4 h-0 bg-black">
-          <div class="col-span-2 bg-orange-200 h-4/6 ">
+          <div class="col-span-2 bg-orange-200 h-fit ">
             <div>
               <div className="font-bold text-center pt-9">Address</div>
             </div>
@@ -52,6 +52,15 @@ export default function OrderPage() {
               </div>
               <div>
                 <RegisterInput placeholder="Post code" />
+              </div>
+              <div className="border border-black h-4/6 ">
+                <img
+                  src="https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F35b405aec2066d3172a1e6ec7acb8f5c4136b6d6-2070x1380.png%3Fw%3D2000%26auto%3Dformat&w=1920&q=75"
+                  alt="photo"
+                />
+              </div>
+              <div className="text-center">
+                <button>Upload</button>
               </div>
             </div>
           </div>
