@@ -30,7 +30,7 @@ export default function OrderPage() {
 
       <div className="p-10">
         <div class="grid grid-cols-3 gap-4 h-0 bg-black">
-          <div class="col-span-2 bg-orange-200 h-fit ">
+          <div class="col-span-2 bg-orange-200 h-5/6 gap-4 overflow-auto">
             <div>
               <div className="font-bold text-center pt-9">Address</div>
             </div>
