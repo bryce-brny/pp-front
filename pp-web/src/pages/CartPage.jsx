@@ -1,7 +1,7 @@
 export default function CartPage() {
   return (
     <>
-      <div className="bg-green-500 border-b-2 border-black">
+      {/* <div className="bg-green-500 border-b-2 border-black">
         <ul class="bg-green-500 h-16 flex items-center ml-4">
           <li class="mr-6">
             <a class="text-blue-500 hover:text-blue-800" href="#">
@@ -24,6 +24,33 @@ export default function CartPage() {
             </a>
           </li>
         </ul>
+      </div> */}
+      <div>
+        <div className="navbar bg-base-100">
+          <div className="flex-1">
+            <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          </div>
+          <div className="flex-none">
+            <ul className="menu menu-horizontal px-1">
+              <li>
+                <a>Link</a>
+              </li>
+              <li>
+                <details>
+                  <summary>Parent</summary>
+                  <ul className="p-2 bg-base-100">
+                    <li>
+                      <a>Link 1</a>
+                    </li>
+                    <li>
+                      <a>Link 2</a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div className="p-10">
