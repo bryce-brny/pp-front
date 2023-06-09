@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 import validateRegister from "../validators/validate-register";
 import InputErrorMessage from "./InputErrorMessage";
 import RegisterInput from "./RegisterInput";
-import * as authService from "../../../api/auth-api";
-import { setAccessToken } from "../../../utils/localstorage";
+import { registerAsync } from "../slice/auth-slice";
 
 const initialInput = {
   firstName: "",
@@ -20,9 +20,12 @@ const initialInput = {
   postCode: "",
 };
 
-export default function RegisterForm() {
+export default function RegisterForm({ onSuccess }) {
   const [input, setInput] = useState(initialInput);
   const [error, setError] = useState({});
+
+  const dispatch = useDispatch();
+  const error = useSelector((state) => state.auth.error);
 
   const handleChangeInput = (e) =>
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -35,11 +38,11 @@ export default function RegisterForm() {
         return setError(result);
       }
       setError({});
-
-      const res = await authService.register(input);
-      setAccessToken(res.data.setAccessToken);
+      await dispatch(registerAsync(input)).unwrap(); // รอทำเส็จค่อยทำข้างล่างต่อ
+      toast.success("register successfully");
+      onSuccess();
     } catch (err) {
-      toast.error("test error");
+      toast.error(err.response.data.message);
     }
   };
 
