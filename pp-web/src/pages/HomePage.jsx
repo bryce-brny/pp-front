@@ -1,25 +1,27 @@
+// import { link } from "react-router-dom";
+
 export default function HomePage() {
   return (
     <>
       <div className="bg-green-500 border-b-2 border-black">
-        <ul class="bg-green-500 h-16 flex items-center ml-4">
-          <li class="mr-6">
-            <a class="text-blue-500 hover:text-blue-800" href="#">
+        <ul className="bg-green-500 h-16 flex items-center ml-4">
+          <li className="mr-6">
+            <a className="text-blue-500 hover:text-blue-800" href="#">
               Active
             </a>
           </li>
-          <li class="mr-6">
-            <a class="text-blue-500 hover:text-blue-800" href="#">
+          <li className="mr-6">
+            <a className="text-blue-500 hover:text-blue-800" href="#">
               Link
             </a>
           </li>
-          <li class="mr-6">
-            <a class="text-blue-500 hover:text-blue-800" href="#">
+          <li className="mr-6">
+            <a className="text-blue-500 hover:text-blue-800" href="#">
               Link
             </a>
           </li>
-          <li class="mr-6">
-            <a class="text-gray-400 cursor-not-allowed" href="#">
+          <li className="mr-6">
+            <a className="text-gray-400 cursor-not-allowed" href="#">
               Disabled
             </a>
           </li>
@@ -41,45 +43,21 @@ export default function HomePage() {
           <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
             <div className="group cursor-pointer">
               <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
-                <a class="relative block aspect-video"></a>
+                <a className="relative block aspect-video"></a>
               </div>
 
               <div>
+                {/* <link to="/product"> */}
                 <h2 className="text-lg font-semibold leading-snug tracking-tight mt-2    dark:text-black">
                   nike
                 </h2>
+                {/* </link> */}
               </div>
             </div>
 
             <div className="group cursor-pointer">
               <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
-                <a class="relative block aspect-video"></a>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-semibold leading-snug tracking-tight mt-2    dark:text-black">
-                  nike
-                </h2>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
-            <div className="group cursor-pointer">
-              <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
-                <a class="relative block aspect-video"></a>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-semibold leading-snug tracking-tight mt-2    dark:text-black">
-                  nike
-                </h2>
-              </div>
-            </div>
-
-            <div className="group cursor-pointer">
-              <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
-                <a class="relative block aspect-video"></a>
+                <a className="relative block aspect-video"></a>
               </div>
 
               <div>
@@ -93,7 +71,7 @@ export default function HomePage() {
           <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
             <div className="group cursor-pointer">
               <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
-                <a class="relative block aspect-video"></a>
+                <a className="relative block aspect-video"></a>
               </div>
 
               <div>
@@ -105,7 +83,7 @@ export default function HomePage() {
 
             <div className="group cursor-pointer">
               <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
-                <a class="relative block aspect-video"></a>
+                <a className="relative block aspect-video"></a>
               </div>
 
               <div>
@@ -119,7 +97,7 @@ export default function HomePage() {
           <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
             <div className="group cursor-pointer">
               <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
-                <a class="relative block aspect-video"></a>
+                <a className="relative block aspect-video"></a>
               </div>
 
               <div>
@@ -131,7 +109,33 @@ export default function HomePage() {
 
             <div className="group cursor-pointer">
               <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
-                <a class="relative block aspect-video"></a>
+                <a className="relative block aspect-video"></a>
+              </div>
+
+              <div>
+                <h2 className="text-lg font-semibold leading-snug tracking-tight mt-2    dark:text-black">
+                  nike
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
+            <div className="group cursor-pointer">
+              <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
+                <a className="relative block aspect-video"></a>
+              </div>
+
+              <div>
+                <h2 className="text-lg font-semibold leading-snug tracking-tight mt-2    dark:text-black">
+                  nike
+                </h2>
+              </div>
+            </div>
+
+            <div className="group cursor-pointer">
+              <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
+                <a className="relative block aspect-video"></a>
               </div>
 
               <div>

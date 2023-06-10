@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ProtectedRoute from "../features/auth/components/ProtectedRoute";
 import RedirectIfAuthenticated from "../features/auth/components/RedirectIfAuthenticated";
+import Header from "../layouts/Header";
 import CartPage from "../pages/CartPage";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
@@ -15,7 +17,15 @@ const router = createBrowserRouter([
       </RedirectIfAuthenticated>
     ),
   },
-  { path: "/", element: <HomePage /> },
+  {
+    path: "/",
+    element: (
+      // <ProtectedRoute>
+      // <HomePage />
+      <Header />
+      // </ProtectedRoute>
+    ),
+  },
   { path: "/product", element: <ProductPage /> },
   { path: "/cart", element: <CartPage /> },
   { path: "/order", element: <OrderPage /> },

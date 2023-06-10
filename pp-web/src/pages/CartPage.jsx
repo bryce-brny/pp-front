@@ -54,8 +54,8 @@ export default function CartPage() {
       </div>
 
       <div className="p-10">
-        <div class="grid grid-cols-3 gap-4 h-0 bg-black">
-          <div class="col-span-2 bg-orange-200 h-4/6 ">
+        <div className="grid grid-cols-3 gap-4 h-0 bg-black">
+          <div className="col-span-2 bg-orange-200 h-4/6 ">
             <div className="grid justify-items-center p-4 gap-4 h-full overflow-auto">
               <div className="w-4/5">
                 <div className=" bg-green-300 border-none h-32  p-20 border-4 shadow flex justify-between items-center">
@@ -88,7 +88,7 @@ export default function CartPage() {
           </div>
 
           <div className="bg-orange-500 h-4/6">
-            <div class="bg-gray-500 pt-4 px-10 flex flex-col gap-6">
+            <div className="bg-gray-500 pt-4 px-10 flex flex-col gap-6">
               <div>
                 <div className="text-3xl">quantity :</div>
               </div>
@@ -98,23 +98,23 @@ export default function CartPage() {
               <div>
                 <div className="text-2xl">number</div>
               </div>
-              <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
+              <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
             </div>
 
-            <div class="bg-red-300 grid grid-cols-3 gap-4 invisible">
-              <div class="border border-black text-center" role="button">
+            <div className="bg-red-300 grid grid-cols-3 gap-4 invisible">
+              <div className="border border-black text-center" role="button">
                 01
               </div>
-              <div class="border border-black text-center" role="button">
+              <div className="border border-black text-center" role="button">
                 02
               </div>
-              <div class="border border-black text-center" role="button">
+              <div className="border border-black text-center" role="button">
                 03
               </div>
-              <div class="border border-black text-center" role="button">
+              <div className="border border-black text-center" role="button">
                 03
               </div>
-              <div class="border border-black text-center" role="button">
+              <div className="border border-black text-center" role="button">
                 03
               </div>
             </div>

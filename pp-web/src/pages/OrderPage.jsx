@@ -4,24 +4,24 @@ export default function OrderPage() {
   return (
     <>
       <div className="bg-green-500 border-b-2 border-black">
-        <ul class="bg-green-500 h-16 flex items-center ml-4">
-          <li class="mr-6">
-            <a class="text-blue-500 hover:text-blue-800" href="#">
+        <ul className="bg-green-500 h-16 flex items-center ml-4">
+          <li className="mr-6">
+            <a className="text-blue-500 hover:text-blue-800" href="#">
               Active
             </a>
           </li>
-          <li class="mr-6">
-            <a class="text-blue-500 hover:text-blue-800" href="#">
+          <li className="mr-6">
+            <a className="text-blue-500 hover:text-blue-800" href="#">
               Link
             </a>
           </li>
-          <li class="mr-6">
-            <a class="text-blue-500 hover:text-blue-800" href="#">
+          <li className="mr-6">
+            <a className="text-blue-500 hover:text-blue-800" href="#">
               Link
             </a>
           </li>
-          <li class="mr-6">
-            <a class="text-gray-400 cursor-not-allowed" href="#">
+          <li className="mr-6">
+            <a className="text-gray-400 cursor-not-allowed" href="#">
               Disabled
             </a>
           </li>
@@ -29,8 +29,8 @@ export default function OrderPage() {
       </div>
 
       <div className="p-10">
-        <div class="grid grid-cols-3 gap-4 h-0 bg-black">
-          <div class="col-span-2 bg-orange-200 h-5/6 gap-4 overflow-auto">
+        <div className="grid grid-cols-3 gap-4 h-0 bg-black">
+          <div className="col-span-2 bg-orange-200 h-5/6 gap-4 overflow-auto">
             <div>
               <div className="font-bold text-center pt-9">Address</div>
             </div>
@@ -66,7 +66,7 @@ export default function OrderPage() {
           </div>
 
           <div className="bg-orange-500 h-5/6">
-            <div class="bg-gray-500 pt-4 px-10 flex flex-col gap-6">
+            <div className="bg-gray-500 pt-4 px-10 flex flex-col gap-6">
               <div>
                 <div className="text-3xl">quantity :</div>
               </div>
@@ -76,23 +76,23 @@ export default function OrderPage() {
               <div>
                 <div className="text-2xl">number</div>
               </div>
-              <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
+              <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
             </div>
 
-            <div class="bg-red-300 grid grid-cols-3 gap-4 invisible">
-              <div class="border border-black text-center" role="button">
+            <div className="bg-red-300 grid grid-cols-3 gap-4 invisible">
+              <div className="border border-black text-center" role="button">
                 01
               </div>
-              <div class="border border-black text-center" role="button">
+              <div className="border border-black text-center" role="button">
                 02
               </div>
-              <div class="border border-black text-center" role="button">
+              <div className="border border-black text-center" role="button">
                 03
               </div>
-              <div class="border border-black text-center" role="button">
+              <div className="border border-black text-center" role="button">
                 03
               </div>
-              <div class="border border-black text-center" role="button">
+              <div className="border border-black text-center" role="button">
                 03
               </div>
             </div>
