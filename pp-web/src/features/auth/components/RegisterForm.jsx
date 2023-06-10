@@ -25,7 +25,7 @@ export default function RegisterForm({ onSuccess }) {
   const [error, setError] = useState({});
 
   const dispatch = useDispatch();
-  const error = useSelector((state) => state.auth.error);
+  // const error = useSelector((state) => state.auth.error);
 
   const handleChangeInput = (e) =>
     setInput({ ...input, [e.target.name]: e.target.value });
