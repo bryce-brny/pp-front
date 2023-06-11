@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 
 const menus = [
   { id: 1, Icon: HouseIcon, to: "/cart" },
-  { id: 2, Icon: UserGroupIcon, to: "/order" },
+  { id: 2, Icon: UserGroupIcon, to: "/product" },
 ];
 
 export default function Menu() {
