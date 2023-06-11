@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ProtectedRoute from "../features/auth/components/ProtectedRoute";
 import RedirectIfAuthenticated from "../features/auth/components/RedirectIfAuthenticated";
 import Header from "../layouts/Header";
@@ -7,6 +7,8 @@ import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import OrderPage from "../pages/OrderPage";
 import ProductPage from "../pages/ProductPage";
+import HistoryPage from "../pages/HistoryPage";
+import Container from "../layouts/Container";
 
 const router = createBrowserRouter([
   {
@@ -20,15 +22,26 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      // <ProtectedRoute>
-      // <HomePage />
-      <Header />
-      // </ProtectedRoute>
+      <ProtectedRoute>
+        <Container />
+      </ProtectedRoute>
     ),
+    children: [
+      {
+        path: "/",
+        element: (
+          // <ProtectedRoute>
+          <HomePage />
+          // <Header />
+          // </ProtectedRoute>
+        ),
+      },
+      { path: "/history", element: <HistoryPage /> },
+      { path: "/product", element: <ProductPage /> },
+      { path: "/cart", element: <CartPage /> },
+      { path: "/order", element: <OrderPage /> },
+    ],
   },
-  { path: "/product", element: <ProductPage /> },
-  { path: "/cart", element: <CartPage /> },
-  { path: "/order", element: <OrderPage /> },
 ]);
 
 export default function Router() {
