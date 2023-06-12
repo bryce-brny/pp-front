@@ -1,6 +1,23 @@
 // import { link } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductApi } from "../api/product-api";
+import { setProducts } from "../store/slice/product-slice";
 
 export default function HomePage() {
+  const product = useSelector((state) => state.product.homeProducts);
+  const dispatch = useDispatch();
+
+  const getProduct = async () => {
+    const res = await getProductApi();
+
+    dispatch(setProducts(res.data.product));
+  };
+
+  useEffect(() => {
+    getProduct();
+  }, []);
+  console.log(product);
   return (
     <>
       <div className="bg-green-500 border-b-2 border-black">
@@ -41,6 +58,9 @@ export default function HomePage() {
       <div>
         <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8">
           <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
+            {/* {product?.map?.((item, index) => (
+              <div className="bg-red-500">{item.brand}</div>
+            ))} */}
             <div className="group cursor-pointer">
               <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
                 <a className="relative block aspect-video"></a>
