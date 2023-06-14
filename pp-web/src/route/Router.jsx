@@ -9,6 +9,9 @@ import OrderPage from "../pages/OrderPage";
 import ProductPage from "../pages/ProductPage";
 import HistoryPage from "../pages/HistoryPage";
 import Container from "../layouts/Container";
+import ProfilePage from "../pages/ProfilePage";
+import AdminPage from "../pages/AdminPage";
+import AddProductPage from "../pages/AddProductPage";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +43,10 @@ const router = createBrowserRouter([
       { path: "/product", element: <ProductPage /> },
       { path: "/cart", element: <CartPage /> },
       { path: "/order", element: <OrderPage /> },
+      { path: "/profile", element: <ProfilePage /> },
+      { path: "/admin", element: <AdminPage /> },
+      { path: "/addproductpage", element: <AddProductPage /> },
+      { path: "/product/:productID", element: <ProductPage /> },
     ],
   },
 ]);

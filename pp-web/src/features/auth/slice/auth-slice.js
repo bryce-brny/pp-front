@@ -8,7 +8,7 @@ const initialState = {
     error:null,
     loading:false,
     user:null,
-    initialLoading:true
+    initialLoading:false
 };
 
 
@@ -78,9 +78,10 @@ const authSlice = createSlice({
     })
     .addCase(registerAsync.pending, state => {
         state.loading = true
-    }).addCase(registerAsync.fulfilled, state=>{
+    }).addCase(registerAsync.fulfilled, (state,action)=>{
         state.isAuthenticated = true;
         state.loading = false;
+        state.user = action.payload;
     }).addCase(registerAsync.rejected, (state,action)=>{
         state.error = action.payload; // err.response.data.message
         state.loading = false;
@@ -97,6 +98,9 @@ const authSlice = createSlice({
 
         state.error = action.payload;
         state.initialLoading = false
+    })
+    .addCase(fetchMe.pending,state=>{
+        state.initialLoading = true
     })
 })
 

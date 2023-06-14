@@ -1,58 +1,11 @@
-export default function CartPage() {
-  return (
-    <>
-      {/* <div className="bg-green-500 border-b-2 border-black">
-        <ul class="bg-green-500 h-16 flex items-center ml-4">
-          <li class="mr-6">
-            <a class="text-blue-500 hover:text-blue-800" href="#">
-              Active
-            </a>
-          </li>
-          <li class="mr-6">
-            <a class="text-blue-500 hover:text-blue-800" href="#">
-              Link
-            </a>
-          </li>
-          <li class="mr-6">
-            <a class="text-blue-500 hover:text-blue-800" href="#">
-              Link
-            </a>
-          </li>
-          <li class="mr-6">
-            <a class="text-gray-400 cursor-not-allowed" href="#">
-              Disabled
-            </a>
-          </li>
-        </ul>
-      </div> */}
-      <div>
-        <div className="navbar bg-base-100">
-          <div className="flex-1">
-            <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
-          </div>
-          <div className="flex-none">
-            <ul className="menu menu-horizontal px-1">
-              <li>
-                <a>Link</a>
-              </li>
-              <li>
-                <details>
-                  <summary>Parent</summary>
-                  <ul className="p-2 bg-base-100">
-                    <li>
-                      <a>Link 1</a>
-                    </li>
-                    <li>
-                      <a>Link 2</a>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+import { useDispatch } from "react-redux";
 
+//import dispatch removecart มา
+
+export default function CartPage() {
+  //handleClick = () => dispatch(removeCart(id))
+  return (
+    <div>
       <div className="p-10">
         <div className="grid grid-cols-3 gap-4 h-0 bg-black">
           <div className="col-span-2 bg-orange-200 h-4/6 ">
@@ -119,7 +72,7 @@ export default function CartPage() {
               </div>
             </div>
 
-            <div className="text-center my-12 ">
+            <div className="text-center my-12">
               <h1 className="invisible">Counter :</h1>
               <div className="flex justify-between my-2 px-3">
                 <div>Total Price</div>
@@ -132,6 +85,6 @@ export default function CartPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

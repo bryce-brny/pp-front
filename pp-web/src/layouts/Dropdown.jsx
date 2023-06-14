@@ -26,17 +26,16 @@ export default function Dropdown() {
   return (
     <div className="relative" ref={dropdownEl}>
       <div role="button" onClick={() => setOpen(!open)}>
-        <Avatar src={user.profileImage} />
+        <Avatar src={user?.profileImage} />
       </div>
       {open && (
         <div className="absolute right-0 translate-y-1 bg-white border rounded-xl shadow-lg w-96 p-2">
-          <Link to="/profile">
+          <Link to="/order" onClick={() => setOpen(false)}>
             <div className="flex items-center gap-4 hover:bg-gray-100 p-2 rounded-lg">
               <Avatar
                 src={user.profileImage}
                 className="rounded-full h-[3.75rem] w-[3.75rem]"
               />
-
               <div>
                 <div className="font-semibold">
                   {user.firstName} {user.lastName}

@@ -3,36 +3,23 @@ import Modal from "../components/Modal";
 import CartContainer from "../features/auth/components/CartContainer";
 import RegisterContainer from "../features/auth/components/RegisterContainer";
 import RegisterForm from "../features/auth/components/RegisterForm";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+// import { validateLogin } from "../../../../back/src/validators/auth-validator";
 
 export default function ProductPage() {
   //   const [open, setOpen] = useState(false);
+  const product = useSelector((state) => state.product.homeProducts);
+
+  const params = useParams();
+  console.log("param ---->", params);
+
+  const [productitem] = product.filter((item) => item.id == +params.productID);
+  console.log("product ----------------------------", product);
+  console.log("productitem ---->>---", productitem);
+  // console.log(productitem);
   return (
     <>
-      <div className="bg-green-500 border-b-2 border-black">
-        <ul className="bg-green-500 h-16 flex items-center ml-4">
-          <li className="mr-6">
-            <a className="text-blue-500 hover:text-blue-800" href="#">
-              Active
-            </a>
-          </li>
-          <li className="mr-6">
-            <a className="text-blue-500 hover:text-blue-800" href="#">
-              Link
-            </a>
-          </li>
-          <li className="mr-6">
-            <a className="text-blue-500 hover:text-blue-800" href="#">
-              Link
-            </a>
-          </li>
-          <li className="mr-6">
-            <a className="text-gray-400 cursor-not-allowed" href="#">
-              Disabled
-            </a>
-          </li>
-        </ul>
-      </div>
-
       <div className="p-10">
         <div className="grid grid-cols-3 gap-4">
           <div className="col-span-2 bg-orange-200">
@@ -50,7 +37,7 @@ export default function ProductPage() {
           <div className="bg-orange-500">
             <div className="bg-gray-500 pt-4 px-10 flex flex-col gap-6">
               <div>
-                <div className="text-3xl">name version </div>
+                <div className="text-3xl">{productitem?.brand} </div>
               </div>
               <div>
                 <div className="text-1xl">color</div>

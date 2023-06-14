@@ -1,10 +1,14 @@
 // import { link } from "react-router-dom";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getProductApi } from "../api/product-api";
-import ProductContainer from "../features/product/ProductContainer";
+// import ProductContainer from "../features/product/ProductContainer";
 // import ProductContainer from "../features/auth/components/ProductContainer";
 import { setProducts } from "../store/slice/product-slice";
+// import Modal from "../components/Modal";
+// import RegisterForm from "../features/auth/components/RegisterForm";
+import AdminCard from "../features/Admin/AdminCard";
 
 export default function HomePage() {
   // const product = useSelector((state) => state.product.homeProducts);
@@ -15,10 +19,6 @@ export default function HomePage() {
 
     dispatch(setProducts(res.data.product));
   };
-
-  // const handleAddToCart = (product) => {
-  //   dispatch(addToCart(product));
-  // };
 
   useEffect(() => {
     getProduct();
@@ -99,6 +99,12 @@ export default function HomePage() {
         {/* <ProductContainer /> */}
       </div>
 
+      <div className="card-actions justify-center p-10">
+        <Link to="/addproductpage">
+          <button className="btn btn-primary">ADD</button>
+        </Link>
+      </div>
+
       <div>
         <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8">
           {/* <div className="grid gap-10 md:grid-cols-2 lg:gap-10 "> */}
@@ -107,9 +113,8 @@ export default function HomePage() {
                 {item.brand} <div>{item.color}</div>
               </div>
             ))} */}
-          <ProductContainer button="Cart" />
 
-          {/* </div> */}
+          <AdminCard button01="Edit" button02="Delete" id={1} />
         </div>
       </div>
     </>
