@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux"; // 1
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart } from "../../store/slice/cart-slice";
@@ -7,10 +7,10 @@ import { addToCart } from "../../store/slice/cart-slice";
 export default function ProductContainer({ button }) {
   const product = useSelector((state) => state.product.homeProducts);
   // console.log(product);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); //2
 
   const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
+    dispatch(addToCart(product)); // 3
   };
 
   // const handleAddProduct = (product) =>{
@@ -21,13 +21,13 @@ export default function ProductContainer({ button }) {
     <>
       <div className="grid gap-10 md:grid-cols-2 lg:gap-10">
         {product?.map?.((item, index) => (
-          <div className=" m-auto" key={index}>
-            <div className="card w-96 bg-base-100 shadow-xl">
+          <div className=" m-auto " key={index}>
+            <div className="card w-96 bg-base-100 shadow-xl overflow-hidden">
               <Link to={`/product/${item.id}`}>
                 <figure>
                   <img
                     className=""
-                    src="https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F35b405aec2066d3172a1e6ec7acb8f5c4136b6d6-2070x1380.png%3Fw%3D2000%26auto%3Dformat&w=1920&q=75"
+                    src="https://pbs.twimg.com/media/DihOLoFVQAAKS7m?format=jpg&name=medium"
                     alt="buz"
                   />
                 </figure>

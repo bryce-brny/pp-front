@@ -50,12 +50,12 @@ export default function AdminCard({ button02 }) {
       <div className="grid gap-10 md:grid-cols-2 lg:gap-10">
         {product?.map?.((item, index) => (
           <div className=" m-auto" key={index}>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-xl overflow-hidden">
               <Link to={`/product/${item.id}`}>
                 <figure>
                   <img
                     className=""
-                    src="https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F35b405aec2066d3172a1e6ec7acb8f5c4136b6d6-2070x1380.png%3Fw%3D2000%26auto%3Dformat&w=1920&q=75"
+                    src="https://pbs.twimg.com/media/DihOLoFVQAAKS7m?format=jpg&name=medium"
                     alt="buz"
                   />
                 </figure>
@@ -64,7 +64,9 @@ export default function AdminCard({ button02 }) {
               <div className="card-body">
                 <h2 className="card-title">{item.brand}</h2>
 
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <p className="invisible">
+                  If a dog chews shoes whose shoes does he choose?
+                </p>
                 <div className="card-actions justify-end">
                   <AdminContainer item={item} button01="edit" />
 

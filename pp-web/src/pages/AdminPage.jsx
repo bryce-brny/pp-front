@@ -10,7 +10,8 @@ import { setProducts } from "../store/slice/product-slice";
 // import RegisterForm from "../features/auth/components/RegisterForm";
 import AdminCard from "../features/Admin/AdminCard";
 
-export default function HomePage() {
+export default function AdminPage() {
+  //HomePage
   // const product = useSelector((state) => state.product.homeProducts);
   const dispatch = useDispatch();
 
@@ -28,10 +29,10 @@ export default function HomePage() {
     <>
       <div className="flex justify-center">
         <div className="carousel w-5/5 overflow-hidden">
-          <div id="slide1" className="carousel-item relative w-full">
+          <div id="slide1" className="carousel-item relative w-full ">
             <img
               className=""
-              src="https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F35b405aec2066d3172a1e6ec7acb8f5c4136b6d6-2070x1380.png%3Fw%3D2000%26auto%3Dformat&w=1920&q=75"
+              src="https://cheezelooker.com/file_managers/uploads/file_managers/source/2020%20DAILY%20CULTURE/OCTOBER/WEEK%202/CARNIVAL/3b17eadf-d727-4b15-bfe0-4a22d8b78ee8.jpg"
               alt="buz"
             />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -46,7 +47,7 @@ export default function HomePage() {
           <div id="slide2" className="carousel-item relative w-full">
             <img
               className=""
-              src="https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F35b405aec2066d3172a1e6ec7acb8f5c4136b6d6-2070x1380.png%3Fw%3D2000%26auto%3Dformat&w=1920&q=75"
+              src="https://www.whitesp-ce.com/wp-content/uploads/2020/06/Carnival_08-lowres_2.png"
               alt="buz"
             />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -58,7 +59,7 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-          <div id="slide3" className="carousel-item relative w-full">
+          {/* <div id="slide3" className="carousel-item relative w-full">
             <img
               className=""
               src="https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F35b405aec2066d3172a1e6ec7acb8f5c4136b6d6-2070x1380.png%3Fw%3D2000%26auto%3Dformat&w=1920&q=75"
@@ -72,8 +73,8 @@ export default function HomePage() {
                 ❯
               </a>
             </div>
-          </div>
-          <div id="slide4" className="carousel-item relative w-full">
+          </div> */}
+          {/* <div id="slide4" className="carousel-item relative w-full">
             <img
               className=""
               src="https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F35b405aec2066d3172a1e6ec7acb8f5c4136b6d6-2070x1380.png%3Fw%3D2000%26auto%3Dformat&w=1920&q=75"
@@ -87,7 +88,7 @@ export default function HomePage() {
                 ❯
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
         {/* <div className="relative z-0 mx-auto aspect-video max-w-screen-lg overflow-hidden lg:rounded-lg">
           <img

@@ -9,6 +9,5 @@ export const deleteProduct = async(id)=>{
 }
 
 export const updateProduct = async(input) => {
-
     return await axios.patch(`/product/${input.id}`,input)
 }
