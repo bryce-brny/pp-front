@@ -1,86 +1,92 @@
 import { useState } from "react";
-import Modal from "../components/Modal";
-import CartContainer from "../features/auth/components/CartContainer";
-import RegisterContainer from "../features/auth/components/RegisterContainer";
-import RegisterForm from "../features/auth/components/RegisterForm";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 // import { validateLogin } from "../../../../back/src/validators/auth-validator";
+import { addNewCart } from "../store/slice/cart-slice";
 
 export default function ProductPage() {
   //   const [open, setOpen] = useState(false);
   const product = useSelector((state) => state.product.homeProducts);
+  console.log("product ----------------------------", product);
 
+  const [amount, setAmount] = useState(1);
+  const [selected, setSelected] = useState(null);
   const params = useParams();
-  console.log("param ---->", params);
+  const dispatch = useDispatch();
+
+  // console.log("param ---->", params); //บอกว่า อันที่ ID เท่าไร
+  // console.log(params.productName, " params.productName");
 
   const [productitem] = product.filter((item) => item.id == +params.productID);
-  console.log("product ----------------------------", product);
-  console.log("productitem ---->>---", productitem);
-  // console.log(productitem);
+  // console.log([productitem]);
+  // console.log("productitem ---->>---", productitem);
+
+  const handleOnSelectSize = (e) => {
+    // console.log(e.target.value);
+    e.preventDefault();
+    setSelected(e.target.value);
+    console.log("e.target.value", e.target.value);
+  };
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+    let input = { productId: productitem.id, size: selected };
+    console.log({ productId: productitem.id, size: selected });
+    dispatch(addNewCart(input));
+    setSelected(null);
+  };
+
   return (
-    <>
-      <div className="p-10">
-        <div className="grid grid-cols-3 gap-4">
-          <div className="col-span-2 bg-orange-200">
-            <div>
-              <div className="relative z-0 mx-auto aspect-video max-w-screen-lg overflow-hidden lg:rounded-lg">
-                <img
-                  className="p-8"
-                  src="https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F35b405aec2066d3172a1e6ec7acb8f5c4136b6d6-2070x1380.png%3Fw%3D2000%26auto%3Dformat&w=1920&q=75"
-                  alt="buz"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-orange-500">
-            <div className="bg-gray-500 pt-4 px-10 flex flex-col gap-6">
-              <div>
-                <div className="text-3xl">{productitem?.brand} </div>
-              </div>
-              <div>
-                <div className="text-1xl">color</div>
-              </div>
-              <div>
-                <div className="text-2xl">price</div>
-              </div>
-              <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
-            </div>
-
-            <div className="bg-red-300 grid grid-cols-3 gap-4">
-              <div className="border border-black text-center" role="button">
-                01
-              </div>
-              <div className="border border-black text-center" role="button">
-                02
-              </div>
-              <div className="border border-black text-center" role="button">
-                03
-              </div>
-              <div className="border border-black text-center" role="button">
-                03
-              </div>
-              <div className="border border-black text-center" role="button">
-                03
-              </div>
-            </div>
-
-            <div className="text-center my-12">
-              <h1>Counter :</h1>
-              <div className="flex gap-4 justify-center my-2">
-                <button>-</button>
-                <button>reset</button>
-                <button>+</button>
-              </div>
-            </div>
-
-            <button className="bg-blue-500 text-white w-full leading-[3rem] rounded-md text-xl font-bold px-4">
-              {/* <CartContainer /> */}
-            </button>
-          </div>
+    // <div className="text-3xl">{productitem?.brand} </div>
+    <div className="flex flex-col">
+      <div className="m-auto">
+        <div className="card w-96 bg-base-100 shadow-xl overflow-hidden m-4 ">
+          <figure>
+            <img
+              className=""
+              src="https://pbs.twimg.com/media/DihOLoFVQAAKS7m?format=jpg&name=medium"
+              alt="buz"
+            />
+          </figure>
         </div>
       </div>
-    </>
+
+      <form className="m-auto" onSubmit={submitForm}>
+        <div className="card w-96 bg-base-100 shadow-xl mb-4">
+          <div className="card-body">
+            <h2 className="card-title">{productitem?.brand}</h2>
+            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <div className="card-actions mt-4 flex flex-col justify-normal w-full h-[70px] overflow-x-auto">
+              {productitem?.Sizes?.map?.((item, index) => (
+                <button
+                  role="button"
+                  className={`btn btn-primary w-[90px] "text-white" ${
+                    selected == item.size ? "" : "bg-gray-400"
+                  }`}
+                  key={item.id}
+                  name="size"
+                  value={item.size}
+                  onClick={handleOnSelectSize}
+                >
+                  {item.size}
+                </button>
+              ))}
+
+              {/* <button className="btn btn-primary w-[90px]">size</button> */}
+            </div>
+            <hr className="mt-2" />
+            <button type="submit" className="btn btn-primary mt-4">
+              add to cart
+            </button>
+            {/* กดแล้วเอาไปเก็ยใตาราง cart    ส่ง size+จำนวน     */}
+
+            <Link to="/cart" className="">
+              <button className="btn btn-primary w-full">goto cart</button>
+            </Link>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 }

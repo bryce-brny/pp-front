@@ -20,6 +20,7 @@ export default function LoginForm() {
   const onSubmit = async (data) => {
     try {
       await dispatch(login(data)).unwrap();
+      toast.success("Login success");
     } catch (err) {
       toast.error("invalid email");
     }
@@ -55,10 +56,8 @@ export default function LoginForm() {
               />
               <InputErrorMessage message={error.password} />
             </div>
-            <div>
-              <button className="bg-blue-500 text-white w-full leading-[3rem] rounded-md text-xl font-bold">
-                Log in
-              </button>
+            <div className="text-center">
+              <button className=" btn w-full">Log in</button>
             </div>
           </div>
         </form>

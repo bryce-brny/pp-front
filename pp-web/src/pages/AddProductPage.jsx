@@ -5,6 +5,7 @@ import AddProductInput from "../features/addproduct/components/AddProductInput";
 import * as productService from "../api/product-api";
 import { addNewProduct } from "../store/slice/product-slice";
 import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
 const initialInput = {
   productName: "",
@@ -23,6 +24,7 @@ export default function AddProductPage() {
   const [input, setInput] = useState(initialInput);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -39,6 +41,7 @@ export default function AddProductPage() {
   const handleAddProduct = (e) => {
     e.preventDefault();
     dispatch(addNewProduct(input));
+    navigate("/");
   };
 
   return (

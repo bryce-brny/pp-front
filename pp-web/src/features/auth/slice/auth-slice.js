@@ -34,10 +34,10 @@ export const login = createAsyncThunk('auth/login',async (input,thunkApi) =>{
         const resFetchMe = await authService.fetchMe()
         return resFetchMe.data.user
 
-    }catch(err){
-
+    }catch (err) {
+        return thunkApi.rejectWithValue(err.response.data.message);
     }
-})
+});
 
 export const fetchMe = createAsyncThunk('auth/fetchMe',async(_,thunkApi)=>{ //ไม่ต้องมี parameter
     try{

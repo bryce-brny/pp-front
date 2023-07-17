@@ -169,9 +169,7 @@ export default function RegisterForm({ onSuccess }) {
       </div>
 
       <div className="flex justify-center mt-4">
-        <button className="bg-green-500 hover:bg-green-600 rounded-lg text-white text-lg font-bold px-8 py-1 min-w-[10rem]">
-          Sign Up
-        </button>
+        <button className=" btn w-full">Sign up</button>
       </div>
     </form>
   );

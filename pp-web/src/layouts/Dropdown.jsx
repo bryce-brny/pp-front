@@ -45,16 +45,18 @@ export default function Dropdown() {
             </div>
           </Link>
           <hr className="border border-gray-300 m-2" />
-          <div
-            className="flex gap-4 items-center p-2 hover:bg-gray-100 rounded-lg"
-            role="button"
-            onClick={() => dispatch(logout())}
-          >
-            <div className="rounded-full bg-gray-300 h-9 w-9 flex justify-center items-center">
-              <RightFromBracketIcon />
+          <Link to="/">
+            <div
+              className="flex gap-4 items-center p-2 hover:bg-gray-100 rounded-lg"
+              role="button"
+              onClick={() => dispatch(logout())}
+            >
+              <div className="rounded-full bg-gray-300 h-9 w-9 flex justify-center items-center">
+                <RightFromBracketIcon />
+              </div>
+              <span className="text-sm font-semibold">Log Out</span>
             </div>
-            <span className="text-sm font-semibold">Log Out</span>
-          </div>
+          </Link>
         </div>
       )}
       {/* dropdown menu */}

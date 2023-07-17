@@ -12,16 +12,16 @@ export const addNewProduct = createAsyncThunk('/product/addproductpage',async (i
     console.log(res.data) //af br
     return res.data
 })
-
 export const removeProduct = createAsyncThunk('/product/removeproduct', async (del_id)=>{
     await productService.deleteProduct(del_id)
     return del_id
 })
-
 export const changeProduct = createAsyncThunk('/product/updateproduct',async(input)=>{
     await productService.updateProduct(input)
     return input
 })
+
+
 
 
 const productSlice = createSlice({

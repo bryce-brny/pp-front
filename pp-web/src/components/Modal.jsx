@@ -15,6 +15,7 @@ export default function Modal({ title, children, width = 27, open, onClose }) {
                 <div className="flex justify-between items-center p-4 border-b text-xl">
                   <div className="invisible">&#10005;</div>
                   <div className="font-bold">{title}</div>
+
                   <div
                     className="text-gray-500 font-semibold hover:text-gray-600"
                     role="button"

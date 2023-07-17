@@ -5,9 +5,10 @@ import RegisterForm from "./RegisterForm";
 export default function RegisterContainer() {
   const [open, setOpen] = useState(false);
   return (
-    <div>
+    <div className="w-full">
+      {/* <button className=" btn w-full">Log in</button> */}
       <button
-        className="bg-blue-500 text-white w-full leading-[3rem] rounded-md text-xl font-bold px-4"
+        className="btn w-full border border-black"
         onClick={() => setOpen(true)}
       >
         Register

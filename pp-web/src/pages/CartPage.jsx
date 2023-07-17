@@ -1,88 +1,123 @@
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-//import dispatch removecart มา
+import RegisterInput from "../features/auth/components/RegisterInput";
+import {
+  addNewCart,
+  checkOutProduct,
+  delCart,
+  getAllCart,
+  updateAddCart,
+  updateSubtractCart,
+} from "../store/slice/cart-slice";
 
 export default function CartPage() {
-  //handleClick = () => dispatch(removeCart(id))
+  const cart = useSelector((state) => state.cart.cartProduct);
+  const [selected, setSelected] = useState(null);
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const array = cart?.map?.(
+    (item, index) => item.quantity * item.Product.price
+  );
+
+  console.log("qt", array);
+
+  const initialValue = 0;
+  const sumWithInitial = array?.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    initialValue
+  );
+
+  console.log("sumWithInitial", sumWithInitial);
+
+  useEffect(() => {
+    dispatch(getAllCart());
+  }, []);
+
+  console.log("========", cart);
+  // console.log("includ Product", cart[0].Product?);
+
+  const addCart = (item) => {
+    console.log(item.id);
+    dispatch(updateAddCart(item));
+  };
+
+  const subtractCart = (item) => {
+    console.log(item.id);
+    dispatch(updateSubtractCart(item));
+  };
+
+  const updateDelCart = (item) => {
+    console.log("delcart", item);
+    dispatch(delCart(item));
+  };
+
+  const handleOnClick = () => {
+    console.log("dddd", sumWithInitial);
+    dispatch(checkOutProduct({ totalPrice: sumWithInitial }));
+    navigate("/order");
+  };
+
   return (
-    <div>
-      <div className="p-10">
-        <div className="grid grid-cols-3 gap-4 h-0 bg-black">
-          <div className="col-span-2 bg-orange-200 h-4/6 ">
-            <div className="grid justify-items-center p-4 gap-4 h-full overflow-auto">
-              <div className="w-4/5">
-                <div className=" bg-green-300 border-none h-32  p-20 border-4 shadow flex justify-between items-center">
-                  <div>img</div>
-                  <div className="my-10 flex-col justify-evenly gap-10">
-                    <div>name</div>
-                    <div>size</div>
-                    <button>Delete</button>
-                  </div>
-                  <div className="flex gap-4">
-                    <button>-</button>
-                    <div className="border h-fit w-10 text-center">1</div>
-                    <button>+</button>
-                  </div>
-                  <div>
-                    <div>price</div>
-                  </div>
+    <div className="flex justify-center">
+      <div className="m-10">
+        {cart?.map?.((item, index) => (
+          <div className="flex justify-center" key={item.id}>
+            <div className="card card-side bg-base-100 shadow-xl w-[1000px] m-5">
+              <figure>
+                <img
+                  className="w-[300px]"
+                  src="https://pbs.twimg.com/media/DihOLoFVQAAKS7m?format=jpg&name=medium"
+                  alt="buz"
+                />
+              </figure>
+              <div className="card-body w-[500px]">
+                <div className="flex gap-2">
+                  <h2 className="card-title">{item.Product?.brand}</h2>
+                  <h2 className="card-title">{item.Product?.productName}</h2>
+                  <h2 className="card-title">{item.Product?.color}</h2>
+                </div>
+                <p>Size : {item.size}</p>
+                <div className="card-actions justify-end">
+                  <h5 className="m-auto">Price : {item.Product?.price}</h5>
+                  <button
+                    className="btn btn-primary w-[90px]"
+                    onClick={() => addCart(item)}
+                  >
+                    +
+                  </button>
+                  <h3 className="m-auto">quantity : {item.quantity}</h3>
+                  <button
+                    className="btn btn-primary w-[90px]"
+                    onClick={() => subtractCart(item)}
+                  >
+                    -
+                  </button>
+                  <h3 className="m-auto">
+                    {item.Product?.price * item.quantity}
+                  </h3>
+                  <button
+                    className="btn btn-primary w-[90px]"
+                    onClick={() => updateDelCart(item)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
-              <div className="w-4/5">
-                <div className=" bg-green-300 border-none h-32 w-5/5 p-20 border-4 shadow"></div>
-              </div>
-              <div className="w-4/5">
-                <div className=" bg-green-300 border-none h-32 w-5/5 p-20 border-4 shadow"></div>
-              </div>
-              <div className="w-4/5">
-                <div className=" bg-green-300 border-none h-32 w-5/5 p-20 border-4 shadow"></div>
-              </div>
             </div>
           </div>
+        ))}
 
-          <div className="bg-orange-500 h-4/6">
-            <div className="bg-gray-500 pt-4 px-10 flex flex-col gap-6">
-              <div>
-                <div className="text-3xl">quantity :</div>
-              </div>
-              <div>
-                <div className="text-1xl invisible">color</div>
-              </div>
-              <div>
-                <div className="text-2xl">number</div>
-              </div>
-              <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
-            </div>
-
-            <div className="bg-red-300 grid grid-cols-3 gap-4 invisible">
-              <div className="border border-black text-center" role="button">
-                01
-              </div>
-              <div className="border border-black text-center" role="button">
-                02
-              </div>
-              <div className="border border-black text-center" role="button">
-                03
-              </div>
-              <div className="border border-black text-center" role="button">
-                03
-              </div>
-              <div className="border border-black text-center" role="button">
-                03
-              </div>
-            </div>
-
-            <div className="text-center my-12">
-              <h1 className="invisible">Counter :</h1>
-              <div className="flex justify-between my-2 px-3">
-                <div>Total Price</div>
-                <div>price</div>
-              </div>
-              <button className="bg-blue-500 text-white w-full leading-[3rem] rounded-md text-xl font-bold px-4 mt-2">
-                order
-              </button>
-            </div>
-          </div>
+        <div className="flex justify-center">
+          <button
+            className="btn no-animation btn-success w-[1000px]"
+            onClick={handleOnClick}
+          >
+            CHECKOUT
+          </button>
         </div>
       </div>
     </div>
